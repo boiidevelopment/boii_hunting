@@ -136,14 +136,10 @@ local function script_setup(client_config)
             end
         end
     end
-
-    -- Gather all animal models
     local animal_models = {}
     for animal, _ in pairs(client_config.animals) do
         animal_models[#animal_models + 1] = animal
     end
-
-    -- Handle boii_target setup
     if TARGET_RESOURCE == 'boii_target' then
         exports.boii_target:add_model(animal_models, {
             id = 'hunting_skinning',
@@ -165,8 +161,6 @@ local function script_setup(client_config)
             },
         })
     end
-
-    -- Handle ox_target setup globally
     if TARGET_RESOURCE == 'ox_target' then
         exports.ox_target:addGlobalPed({
             name = 'hunting_skinning',
@@ -181,8 +175,6 @@ local function script_setup(client_config)
             end
         })
     end
-
-    -- Handle qb-target setup using the animal_models table
     if TARGET_RESOURCE == 'qb-target' then
         for _, animal in ipairs(animal_models) do
             exports['qb-target']:AddTargetModel(animal, {
@@ -202,8 +194,6 @@ local function script_setup(client_config)
             })
         end
     end
-
-    
 end
 
 --- @section Callbacks
