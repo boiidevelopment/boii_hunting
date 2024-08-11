@@ -1,0 +1,201 @@
+/*
+     ____   ____ _____ _____   _   _____  ________      ________ _      ____  _____  __  __ ______ _   _ _______ 
+    |  _ \ / __ \_   _|_   _| | | |  __ \|  ____\ \    / /  ____| |    / __ \|  __ \|  \/  |  ____| \ | |__   __|
+    | |_) | |  | || |   | |   | | | |  | | |__   \ \  / /| |__  | |   | |  | | |__) | \  / | |__  |  \| |  | |   
+    |  _ <| |  | || |   | |   | | | |  | |  __|   \ \/ / |  __| | |   | |  | |  ___/| |\/| |  __| | . ` |  | |   
+    | |_) | |__| || |_ _| |_  | | | |__| | |____   \  /  | |____| |___| |__| | |    | |  | | |____| |\  |  | |   
+    |____/ \____/_____|_____| | | |_____/|______|   \/   |______|______\____/|_|    |_|  |_|______|_| \_|  |_|   
+                              | |                                                                                
+                              |_|                 HUNTING
+*/
+
+#store_container {
+    position: fixed;
+    right: 12vw;
+    top: 17vh;
+    width: 20vw;
+    height: fit-content;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--header_font_family);
+    background: var(--background);
+    padding: 1vh;
+    border-radius: var(--border_radius);
+    box-shadow: var(--box_shadow);
+    opacity: 0.95;
+}
+
+#store_header {
+    text-align: center;
+    margin-bottom: 1vh;
+    padding: 1vh;
+}
+
+#store_header h1 {
+    font-size: 3vh;
+    margin-bottom: 1vh;
+    color: var(--text_colour);
+    text-shadow: var(--text_shadow);
+    padding: 2px;
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#store_header h1::after {
+    content: "";
+    width: 50%;
+    height: 0.2vh;
+    background-color: var(--accent_colour);
+    border-radius: var(--border_radius);
+    box-shadow: var(--box_shadow_inset);
+    padding: 1px;
+}
+
+
+#categories_tabs {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 1.5vh;
+    padding-top: 0.5vh;
+    padding-bottom: 1vh;
+}
+
+.category_tab {
+    background-color: var(--secondary_background);
+    color: var(--text_colour);
+    padding: 0.5vh 1vw;
+    border-radius: var(--border_radius);
+    border: none;
+    cursor: pointer;
+    font-size: 1vh;
+    box-shadow: var(--box_shadow_inset);
+    text-transform: capitalize;
+    text-align: center;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    opacity: 0.9;
+    font-family: var(--header_font_family);
+}
+
+.category_tab.active,
+.category_tab:hover {
+    transform: translateY(-20%);
+    background-color: var(--tertiary_background);
+    opacity: 1.0;
+}
+
+#items_list {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    padding: 1vh;
+    margin-top: -1vh;
+    overflow-y: scroll;
+    height: fit-content;
+    max-height: 43vh;
+}
+
+.item_row {
+    flex-shrink: 0; 
+    height: 5vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--secondary_background);
+    padding: 1vh 1vw;
+    border-radius: var(--border_radius);
+    box-shadow: var(--box_shadow);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.item_row img {
+    width: 3.5vw;
+    object-fit: contain;
+    margin-left: -1vw;
+}
+
+.item_details {
+    flex: 1;
+    margin-left: 0.1vw;
+}
+
+.item_details h3 {
+    font-size: 1.4vh;
+    color: var(--text_colour);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 6.5vw;
+}
+
+.item_details p {
+    font-size: 1.6vh;
+    color: var(--tertiary_text_colour);
+    margin: 0;
+}
+
+.quantity_input {
+    width: 3vw;
+    padding: 0.5vh;
+    font-size: 1.4vh;
+    border: none;
+    border-radius: var(--border_radius);
+    text-align: center;
+    margin-right: 0.5vw;
+    box-shadow: var(--box_shadow_inset);
+    background-color: var(--background);
+    color: var(--text_colour);
+    font-family: var(--text_font_family);
+}
+
+.sell_button,
+.buy_button {
+    background-color: var(--accent_colour);
+    color: var(--text_colour);
+    padding: 0.5vh 1vw;
+    border: none;
+    border-radius: var(--border_radius);
+    cursor: pointer;
+    box-shadow: var(--box_shadow_inset);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0.8;
+    font-family: var(--text_font_family);
+}
+
+.sell_button:hover,
+.buy_button:hover {
+    opacity: 1.0;
+}
+
+.help_text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--tertiary_text_colour);
+    font-family: var(--text_font_family);
+    margin-bottom: -1vh;
+    font-size: 1.3vh;
+}
+
+#scroll_icon {
+    margin-left: 0.8vw;
+    color: var(--tertiary_text_colour);
+    display: flex;
+    align-items: center;
+    font-size: 1.3vh;
+}
+
+#scroll_icon i {
+    padding: 0.1vh;
+    margin-right: 0.2vw;
+}
