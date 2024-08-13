@@ -136,10 +136,12 @@ local function script_setup(client_config)
             end
         end
     end
+     
     local animal_models = {}
     for animal, _ in pairs(client_config.animals) do
         animal_models[#animal_models + 1] = animal
     end
+     
     if TARGET_RESOURCE == 'boii_target' then
         exports.boii_target:add_model(animal_models, {
             id = 'hunting_skinning',
@@ -161,6 +163,7 @@ local function script_setup(client_config)
             },
         })
     end
+     
     if TARGET_RESOURCE == 'ox_target' then
         exports.ox_target:addGlobalPed({
             name = 'hunting_skinning',
@@ -175,6 +178,7 @@ local function script_setup(client_config)
             end
         })
     end
+     
     if TARGET_RESOURCE == 'qb-target' then
         for _, animal in ipairs(animal_models) do
             exports['qb-target']:AddTargetModel(animal, {
