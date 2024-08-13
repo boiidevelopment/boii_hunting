@@ -284,7 +284,6 @@ RegisterNetEvent('boii_hunting:cl:start_conversation', function(data)
     local location = data.location
     local store_type = data.store
     if not is_store_open(store_type) then notify('Store Closed', 'This store is currently closed. Please come back during the opening hours.', 'info', 3500) return end
-
     local ped, coords = utils.entities.get_closest_ped(vector3(location.x, location.y, location.z), 5.0)
     local dialogue = dialogues[store_type]
     for _, convo in pairs(dialogue.conversation) do
