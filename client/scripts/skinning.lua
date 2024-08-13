@@ -31,9 +31,7 @@ RegisterNetEvent('boii_hunting:cl:skin_animal', function()
         end
     end
     if not animal_name then debug_log('err', 'Event: skin_animal | Note: Invalid animal model or not found in config.') return end
-    print('has_item check')
     utils.fw.has_item(SKINNING_ITEM, 1, function(has_item)
-        print('has_item result', has_item)
         if not has_item then notify(language.notify_header, language.no_knife, 'error', 3500) return end
         is_skinning = true
         local timer = math.ceil(math.random(config.animals[animal_name].skinning_time.min, config.animals[animal_name].skinning_time.max))
