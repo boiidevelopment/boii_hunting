@@ -35,6 +35,5 @@ end)
 --- Handles store actions.
 --- @param data table: Store action data.
 RegisterNUICallback('handle_store_action', function(data)
-    print('store id lua client: ' .. data.store_id)
     TriggerServerEvent('boii_hunting:sv:handle_store_action', data)
 end)
