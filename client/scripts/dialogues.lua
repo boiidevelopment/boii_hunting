@@ -100,7 +100,7 @@ dialogues.meat = {
                     next_id = nil,
                     should_end = true,
                     action_type = 'server',
-                    action = 'boii_hunting:sv:sell_items',
+                    action = 'boii_hunting:sv:load_store',
                     params = {
                         store = 'meat'
                     }
@@ -129,7 +129,7 @@ dialogues.meat = {
                     next_id = nil,
                     should_end = true,
                     action_type = 'server',
-                    action = 'boii_hunting:sv:sell_items',
+                    action = 'boii_hunting:sv:load_store',
                     params = {
                         store = 'meat'
                     }
@@ -167,7 +167,7 @@ dialogues.hides = {
                     next_id = nil,
                     should_end = true,
                     action_type = 'server',
-                    action = 'boii_hunting:sv:sell_items',
+                    action = 'boii_hunting:sv:load_store',
                     params = {
                         store = 'hides'
                     }
@@ -196,7 +196,7 @@ dialogues.hides = {
                     next_id = nil,
                     should_end = true,
                     action_type = 'server',
-                    action = 'boii_hunting:sv:sell_items',
+                    action = 'boii_hunting:sv:load_store',
                     params = {
                         store = 'hides'
                     }
@@ -234,7 +234,7 @@ dialogues.exotic = {
                     next_id = nil,
                     should_end = true,
                     action_type = 'server',
-                    action = 'boii_hunting:sv:sell_items',
+                    action = 'boii_hunting:sv:load_store',
                     params = {
                         store = 'exotic'
                     }
@@ -263,7 +263,7 @@ dialogues.exotic = {
                     next_id = nil,
                     should_end = true,
                     action_type = 'server',
-                    action = 'boii_hunting:sv:sell_items',
+                    action = 'boii_hunting:sv:load_store',
                     params = {
                         store = 'exotic'
                     }
@@ -281,6 +281,7 @@ dialogues.exotic = {
 
 --- Event to launch dialogue based on store type.
 RegisterNetEvent('boii_hunting:cl:start_conversation', function(data)
+    print('starting conversation?')
     local location = data.location
     local store_type = data.store
     if not is_store_open(store_type) then notify('Store Closed', 'This store is currently closed. Please come back during the opening hours.', 'info', 3500) return end
