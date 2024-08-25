@@ -281,7 +281,6 @@ dialogues.exotic = {
 
 --- Event to launch dialogue based on store type.
 RegisterNetEvent('boii_hunting:cl:start_conversation', function(data)
-    print('starting conversation?')
     local location = data.location
     local store_type = data.store
     if not is_store_open(store_type) then notify('Store Closed', 'This store is currently closed. Please come back during the opening hours.', 'info', 3500) return end
