@@ -11,7 +11,7 @@
 
 --- @section Constants
 
-local SKINNING_ITEM <const> = 'weapon_knife'
+local SKINNING_WEAPON_HASH <const> = GetHashKey('WEAPON_KNIFE')
 
 --- @section Events
 
@@ -31,26 +31,27 @@ RegisterNetEvent('boii_hunting:cl:skin_animal', function()
         end
     end
     if not animal_name then debug_log('err', 'Event: skin_animal | Note: Invalid animal model or not found in config.') return end
-    utils.fw.has_item(SKINNING_ITEM, 1, function(has_item)
-        if not has_item then notify(language.notify_header, language.no_knife, 'error', 3500) return end
-        is_skinning = true
-        local timer = math.ceil(math.random(config.animals[animal_name].skinning_time.min, config.animals[animal_name].skinning_time.max))
-        SendNUIMessage({
-            action = 'start_timer',
-            message = language.progress_text,
-            duration = timer
-        })
-        utils.player.play_animation(player_ped, {
-            dict = 'anim@gangops@facility@servers@bodysearch@',
-            anim = 'player_search',
-            flags = 1,
-            duration = timer * 1000,
-            freeze = true
-        }, function()
-            TriggerServerEvent('boii_hunting:sv:skin_animal', animal_name, NetworkGetNetworkIdFromEntity(target_ped))
-            Wait(1000)
-            is_skinning = false
-        end)
+    if not utils.player.has_weapon_equipped(player_ped, SKINNING_WEAPON_HASH) then
+        notify(language.notify_header, language.no_knife, 'error', 3500)
+        return
+    end
+    is_skinning = true
+    local timer = math.ceil(math.random(config.animals[animal_name].skinning_time.min, config.animals[animal_name].skinning_time.max))
+    SendNUIMessage({
+        action = 'start_timer',
+        message = language.progress_text,
+        duration = timer
+    })
+    utils.player.play_animation(player_ped, {
+        dict = 'anim@gangops@facility@servers@bodysearch@',
+        anim = 'player_search',
+        flags = 1,
+        duration = timer * 1000,
+        freeze = true
+    }, function()
+        TriggerServerEvent('boii_hunting:sv:skin_animal', animal_name, NetworkGetNetworkIdFromEntity(target_ped))
+        Wait(1000)
+        is_skinning = false
     end)
 end)
 
