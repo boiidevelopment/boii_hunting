@@ -13,7 +13,7 @@ fx_version 'cerulean'
 games { 'gta5', 'rdr3' }
 
 name 'boii_hunting'
-version '1.0.2'
+version '1.0.3'
 description 'BOII | Development - Hunting'
 author 'boiidevelopment'
 repository 'https://github.com/boiidevelopment/boii_hunting'
