@@ -70,4 +70,4 @@ Any other changes to the configs you wish to make can also be made.
 
 ## 📩 Support
 
-[Discord](https://discord.gg/boiidevelopment)
+[Discord](https://discord.gg/MUckUyS5Kq)
