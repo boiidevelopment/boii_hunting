@@ -20,7 +20,7 @@ Enjoy!
 
 ## 💹 Dependencies
 
-- **boii_utils:** For multi-framework compatibility.
+- **boii_utils V1.8.7:** For multi-framework compatibility. https://github.com/boiidevelopment/boii_utils/releases/tag/v1.8.7
 - **boii_ui:** Optional, required for dialogue system if using.
 - **boii_target | ox_target | qb-target:** A target resource, you can use `boii_target`, `ox_target`, or `qb-target`.
 
